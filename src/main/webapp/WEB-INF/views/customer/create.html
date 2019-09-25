@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="/customer/layout :: head">
+    <meta charset="UTF-8">
+</head>
+<body>
+<h1>Create Customer</h1>
+<p>
+    <a href="/customers">Customer List</a>
+</p>
+<th:block th:if="${message}">
+    <p th:text="${message}"></p>
+</th:block>
+<form th:action="@{/create-customer}" th:object="${customer}" method="post" enctype="multipart/form-data">
+    <table>
+        <tr>
+            <td>Name:</td>
+            <td><input type="text" th:field="*{name}"/></td>
+        </tr>
+        <tr>
+            <td>Address:</td>
+            <td><input type="text" th:field="*{address}"/></td>
+        </tr>
+        <tr>
+            <td>Gender:</td>
+            <td><input type="text" th:field="*{gender}"/></td>
+        </tr>
+        <tr>
+            <td>Image:</td>
+            <td><input type="file" th:field="*{avatar}"/></td>
+        </tr>
+        <tr>
+            <td></td>
+            <td><input type="submit" value="Create Customer"></td>
+        </tr>
+    </table>
+</form>
+</body>
+</html>
